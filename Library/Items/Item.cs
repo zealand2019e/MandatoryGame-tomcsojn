@@ -6,10 +6,10 @@ namespace Library.Items
 {
     public class Item
     {
-        string Type { get; set; }
-        int value { get; set; }
+        public string Type { get; set; }
+        public int value { get; set; }
 
-        string Name { get; set; }
+        public string Name { get; set; }
 
         public Item(string type, int value, string name)
         {

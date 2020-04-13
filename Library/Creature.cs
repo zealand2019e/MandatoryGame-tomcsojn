@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Library.Items;
 namespace Library
 {
-    public class Creature
-    {
+	public class Creature
+	{
 		private int posx;
 
 		public int PosX
@@ -14,6 +14,7 @@ namespace Library
 			set { posx = value; }
 		}
 		private int posy;
+		List<Item> Items = new List<Item>();
 
 		public int PosY
 		{
@@ -39,14 +40,22 @@ namespace Library
 		public int GetATK()
 		{
 			int atkcount = baseatk;
-			//TODO:add atk from items
-
+			//atk from items
+			foreach (var item in Items.FindAll(x => x.Type == "ATK"))
+			{
+				atkcount += item.value;
+			}
 			return atkcount;
 		}
-		 int GetDef()
+		int GetDef()
 		{
 			int defcount = basedef;
-			//TODO:add defence from items
+			// defence from items
+			foreach (var item in Items.FindAll(x=>x.Type=="DEF"))
+			{
+				defcount += item.value;
+			}
+
 
 			return defcount;
 		}
@@ -54,17 +63,29 @@ namespace Library
 		public bool defend(int atk)
 		{
 			atk -= GetDef();
-			if (atk>0)
+			if (atk > 0)
 			{
 				basehp -= atk;
-				if(basehp <=0)
+				if (basehp <= 0)
 				{
 					return true;//return true for death
-				}				
+				}
 			}
 			return false;//return false if survived
 		}
 
+		
+
+		public void pickup(Object O)
+		{
+			Item tmp = O.GetContent;
+			if (tmp!=null)
+			{
+				Items.Add(tmp);
+			}
+			//object was empty
+
+		}
 
 
 	}

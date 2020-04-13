@@ -23,6 +23,23 @@ namespace Library
                 creatures.Remove(defender);
             }
         }
+        string movePlayer(Creature player,int x,int y)
+        {
+            if (x<=player.PosX+1 && x>=player.PosX-1)
+            {
+                if (y<=player.PosY+1 && y>=player.PosY-1)
+                {//coordinate is valid
+                    //TODO: maybe check if position is blocked
+                    player.PosX = x;
+                    player.PosY = y;
+                    //check if there is an object there
+                    return "moved to " + x + ", " + y;
+
+                }
+            }
+            return "invalid movement";
+
+        } 
 
     }
 }
