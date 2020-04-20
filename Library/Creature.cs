@@ -14,14 +14,14 @@ namespace Library
 			set { posx = value; }
 		}
 		private int posy;
-		List<Item> Items = new List<Item>();
+		
 
 		public int PosY
 		{
 			get { return posy; }
 			set { posy = value; }
 		}
-
+		List<Item> Items = new List<Item>();
 		private int baseatk;
 		private int basedef;
 		private int basehp;

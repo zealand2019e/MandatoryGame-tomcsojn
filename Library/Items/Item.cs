@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Library.Items
 {
-    public class Item
+    public abstract class Item
     {
         public string Type { get; set; }
         public int value { get; set; }

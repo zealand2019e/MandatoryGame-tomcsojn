@@ -14,6 +14,22 @@ namespace Library
         public List<Creature> creatures;
         public List<Object> objects;
 
+        public World(int lenght, int width, List<Creature> creatures, List<Object> objects)
+        {
+            this.lenght = lenght;
+            this.width = width;
+            this.creatures = creatures;
+
+
+
+            this.objects = new List<Object>();
+            ObjectFactory factory = new ObjectFactory(lenght, width);
+            int objcount = (lenght * width) / 10;
+            for (int i = 0; i < objcount; i++)
+            {
+                objects.Add(factory.GetObject());
+            }
+        }
 
         void fight(Creature attacker,Creature defender)
         {

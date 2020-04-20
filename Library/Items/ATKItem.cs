@@ -6,15 +6,15 @@ namespace Library.Items
 {
     class ATKItem:Item
     {
-        static List<defitem> itemlist = new List<defitem>()
+        static List<atkitem> itemlist = new List<atkitem>()
         {
-            new defitem{name = "Wooden Shield", value = 3},
-            new defitem{name = "Iron Shield", value = 5},
-            new defitem{name = "Helmet", value = 3},
-            new defitem{name = "Boots", value = 1},
-            new defitem{name = "Chestplate", value = 4},
+            new atkitem{name = "Wooden Sword", value = 3},
+            new atkitem{name = "Iron Sword", value = 5},
+            new atkitem{name = "Iron Fist", value = 3},
+            new atkitem{name = "Club", value = 1},
+            new atkitem{name = "Fire Magic", value = 4},
         };
-        struct defitem
+        struct atkitem
         {
             public string name;
             public int value;
@@ -29,7 +29,7 @@ namespace Library.Items
         public static Item GetItem()
         {
             var random = new Random();
-            defitem tmp = itemlist[random.Next(itemlist.Count)];
+            atkitem tmp = itemlist[random.Next(itemlist.Count)];
             Item item = new ATKItem("ATK", tmp.value, tmp.name);
             return item;
         }
